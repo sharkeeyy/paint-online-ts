@@ -6,6 +6,11 @@ import canvasState from '../store/canvasState';
 import Rect from '../tools/Rect';
 
 const Toolbar = () => {
+  const changeColor = (e: React.ChangeEvent<HTMLInputElement>) => {
+    toolState.setStrokeColor(e.target.value);
+    toolState.setFillColor(e.target.value);
+  }
+
   return (
     <div className="toolbar">
       <button
@@ -19,9 +24,9 @@ const Toolbar = () => {
       <button className="toolbar__btn circle" />
       <button className="toolbar__btn eraser" />
       <button className="toolbar__btn line" />
-      <input type="color" className="toolbar__btn color" />
-      <button className="toolbar__btn undo" />
-      <button className="toolbar__btn redo" />
+      <input onChange={changeColor} type="color" className="toolbar__btn color" />
+      <button className="toolbar__btn undo" onClick={() => canvasState.undo()}/>
+      <button className="toolbar__btn redo" onClick={() => canvasState.redo()} />
       <button className="toolbar__btn save" />
     </div>
   );

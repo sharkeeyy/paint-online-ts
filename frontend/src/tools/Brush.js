@@ -23,7 +23,10 @@ export default class Brush extends Tool {
   }
 
   onMouseMove(e) {
-    if (this.mouseDown) this.draw(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop);
+    if (this.mouseDown) {
+      console.log('draw!');
+      this.draw(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop);
+    }
   }
 
   draw(x, y) {

@@ -14,6 +14,12 @@ const Settings = () => {
         min={1}
         max={50}
       />
+      <label htmlFor="border-line">Цвет обводки</label>
+      <input
+        onChange={(e) => toolState.setStrokeColor(e.target.value)}
+        id="border-line"
+        type="color"
+      />
     </div>
   );
 };
